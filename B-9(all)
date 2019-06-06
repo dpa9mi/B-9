@@ -1,0 +1,53 @@
+#include <iostream>
+
+using namespace std;
+
+void main()
+{
+  setlocale(LC_ALL, "rus");
+  int k;
+  int sum;
+  cout << "Введите k от 3 до 10 ";
+  cin >> k;
+  int mass[10];
+  char mass_zn[10];
+  while (1)
+  {
+    if (k < 3 || k > 10)
+    {
+      cout << "Не правильное значение" << endl;
+      cout << "Введите k от 3 до 10 ";
+      cin >> k;
+    }
+    else
+    {
+      break;
+    }
+  }
+
+  for (int i = 1; i <= k; i++) {
+    cout << "Введите цифру";
+    cin >> mass[i];
+    cout << "Введите знак";
+    cin >> mass_zn[i];
+  }
+
+  for (int i = 1; i <= k; i++) {
+    if (k % 2 == 0) {
+      cin >> mass_zn[i];
+      if (mass_zn[i] == '+') {
+        sum += mass[i] + mass[i + 1];
+      }
+      if (mass_zn[i] == '-') {
+        sum += mass[i] - mass[i + 1];
+      }
+      if (mass_zn[i] == '*') {
+        sum += mass[i] * mass[i + 1];
+      }
+      if (mass_zn[i] == '/') {
+        sum += mass[i] / mass[i + 1];
+      }
+    }
+  }
+  cout << endl << sum;
+}
